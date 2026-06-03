@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Admin Dashboard</title>
+
+<style>
+    body {
+        font-family: Arial;
+        margin: 0;
+        background: #f4f6f9;
+    }
+
+    header {
+        background: #2c3e50;
+        color: white;
+        padding: 15px;
+        text-align: center;
+        font-size: 22px;
+    }
+
+    .container {
+        padding: 20px;
+    }
+
+    h2 {
+        margin-top: 30px;
+        color: #333;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        background: white;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        margin-top: 10px;
+    }
+
+    th, td {
+        padding: 12px;
+        border-bottom: 1px solid #ddd;
+        text-align: center;
+    }
+
+    th {
+        background: #3498db;
+        color: white;
+    }
+
+    tr:hover {
+        background: #f1f1f1;
+    }
+
+</style>
+</head>
+
+<body>
+
+<header>
+    🛠 Admin Dashboard - Shanti Marg Yatra
+</header>
+
+<div class="container">
+
+    <h2>📦 Bookings</h2>
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>User ID</th>
+            <th>Package ID</th>
+            <th>Travel Date</th>
+        </tr>
+
+        <tr th:each="b : ${bookings}">
+            <td th:text="${b.id}"></td>
+            <td th:text="${b.userId}"></td>
+            <td th:text="${b.packageId}"></td>
+            <td th:text="${b.travelDate}"></td>
+        </tr>
+    </table>
+
+    <h2>👤 Users</h2>
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Mobile</th>
+        </tr>
+
+        <tr th:each="u : ${users}">
+            <td th:text="${u.id}"></td>
+            <td th:text="${u.name}"></td>
+            <td th:text="${u.mobile}"></td>
+        </tr>
+    </table>
+    <h2>📦 Packages</h2>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Days</th>
+        <th>Price</th>
+    </tr>
+
+    <tr th:each="p : ${packages}">
+        <td th:text="${p.id}"></td>
+        <td th:text="${p.name}"></td>
+        <td th:text="${p.description}"></td>
+        <td th:text="${p.days}"></td>
+        <td>₹ <span th:text="${p.price}"></span></td>
+    </tr>
+</table>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,1312 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Premium Services | Shanti Marg Yatra
+    </title>
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        html{
+            scroll-behavior:smooth;
+        }
+
+        body{
+
+            font-family:'Poppins',sans-serif;
+
+            background:#fffdfb;
+
+            color:#222;
+
+            overflow-x:hidden;
+        }
+
+        /* ================= NAVBAR ================= */
+
+        .navbar{
+
+            position:fixed;
+
+            top:0;
+            left:0;
+
+            width:100%;
+
+            display:flex;
+
+            justify-content:space-between;
+
+            align-items:center;
+
+            padding:16px 60px;
+
+            background:rgba(255,255,255,0.96);
+
+            backdrop-filter:blur(12px);
+
+            z-index:1000;
+
+            box-shadow:
+            0 2px 18px rgba(0,0,0,0.06);
+        }
+
+        .logo{
+
+            display:flex;
+
+            align-items:center;
+
+            gap:12px;
+        }
+
+        .logo img{
+
+            height:55px;
+
+            width:auto;
+
+            object-fit:contain;
+        }
+
+        .logo span{
+
+            font-size:28px;
+
+            font-weight:700;
+
+            color:#f26522;
+
+            white-space:nowrap;
+        }
+
+        .nav-links{
+
+            display:flex;
+
+            align-items:center;
+
+            gap:16px;
+        }
+
+        .nav-links a{
+
+            text-decoration:none;
+
+            color:#222;
+
+            font-size:16px;
+
+            font-weight:600;
+
+            transition:0.3s;
+        }
+
+        .nav-links a:hover{
+
+            color:#f26522;
+        }
+
+        .contact-btn{
+
+            background:#f26522;
+
+            color:white !important;
+
+            padding:11px 22px;
+
+            border-radius:40px;
+
+            box-shadow:
+            0 8px 20px rgba(242,101,34,0.22);
+        }
+
+        /* ================= HERO ================= */
+
+        .services-hero{
+
+            padding:170px 20px 90px;
+
+            text-align:center;
+
+            background:
+
+            linear-gradient(rgba(0,0,0,0.60),
+            rgba(0,0,0,0.60)),
+
+            url('/images/mahakal.jpg');
+
+            background-size:cover;
+
+            background-position:center;
+
+            color:white;
+        }
+
+        /* SANSKRIT */
+
+        .hero-sanskrit{
+
+            display:flex;
+
+            flex-direction:column;
+
+            align-items:center;
+
+            margin-bottom:24px;
+        }
+
+        .sanskrit-wrapper{
+
+            display:flex;
+
+            align-items:center;
+
+            gap:18px;
+
+            padding:10px 28px;
+
+            background:rgba(255,255,255,0.08);
+
+            border:1px solid rgba(255,255,255,0.15);
+
+            border-radius:50px;
+
+            backdrop-filter:blur(12px);
+        }
+
+        .hero-icon{
+
+            font-size:25px;
+        }
+
+        .sanskrit-text{
+
+            font-size:22px;
+
+            font-weight:700;
+
+            letter-spacing:2px;
+
+            color:#ffe0c2;
+        }
+
+        .sanskrit-line{
+
+            width:120px;
+
+            height:2px;
+
+            margin:10px 0;
+
+            background:
+            linear-gradient(to right,
+            transparent,
+            rgba(255,255,255,0.7),
+            transparent);
+        }
+
+        /* TAG */
+
+        .services-tag{
+
+            display:inline-block;
+
+            padding:10px 22px;
+
+            border-radius:40px;
+
+            background:rgba(255,255,255,0.12);
+
+            backdrop-filter:blur(10px);
+
+            font-size:13px;
+
+            font-weight:600;
+
+            letter-spacing:1px;
+
+            margin-bottom:20px;
+        }
+
+        /* HEADING */
+
+        .services-hero h1{
+
+            font-size:50px;
+
+            line-height:1.2;
+
+            margin-bottom:18px;
+
+            font-weight:800;
+        }
+
+        .services-hero p{
+
+            max-width:760px;
+
+            margin:auto;
+
+            font-size:17px;
+
+            line-height:1.9;
+
+            color:#f1f1f1;
+        }
+
+        /* ================= SERVICES ================= */
+
+        .premium-services{
+
+            padding:95px 70px;
+
+            background:
+
+            radial-gradient(circle at top left,
+            rgba(242,101,34,0.08),
+            transparent 25%),
+
+            radial-gradient(circle at bottom right,
+            rgba(255,184,77,0.08),
+            transparent 25%),
+
+            linear-gradient(to bottom,
+            #fffdfb,
+            #fff7f1);
+        }
+
+        .premium-title{
+
+            text-align:center;
+
+            max-width:850px;
+
+            margin:auto;
+
+            margin-bottom:70px;
+        }
+
+        .premium-title h2{
+
+            font-size:40px;
+
+            color:#1f2937;
+
+            line-height:1.3;
+
+            margin-bottom:18px;
+
+            font-weight:800;
+        }
+
+        .premium-title p{
+
+            color:#666;
+
+            line-height:1.8;
+
+            font-size:16px;
+        }
+
+        /* GRID */
+
+        .premium-grid{
+
+            display:grid;
+
+            grid-template-columns:
+            repeat(auto-fit,minmax(320px,1fr));
+
+            gap:32px;
+        }
+
+        /* CARD */
+
+        .premium-card{
+
+            background:white;
+
+            border-radius:28px;
+
+            overflow:hidden;
+
+            border:1px solid rgba(0,0,0,0.04);
+
+            box-shadow:
+            0 15px 40px rgba(0,0,0,0.07);
+
+            transition:0.4s;
+        }
+
+        .premium-card:hover{
+
+            transform:translateY(-10px);
+
+            box-shadow:
+            0 22px 50px rgba(0,0,0,0.10);
+        }
+
+        /* IMAGE */
+
+        .card-image{
+
+            position:relative;
+
+            overflow:hidden;
+        }
+
+        .card-image img{
+
+            width:100%;
+
+            height:240px;
+
+            object-fit:cover;
+
+            transition:0.5s;
+        }
+
+        .premium-card:hover .card-image img{
+
+            transform:scale(1.06);
+        }
+
+        .overlay{
+
+            position:absolute;
+
+            top:0;
+            left:0;
+
+            width:100%;
+            height:100%;
+
+            background:
+            linear-gradient(to top,
+            rgba(0,0,0,0.32),
+            transparent);
+        }
+
+        .premium-badge{
+
+            position:absolute;
+
+            top:18px;
+            left:18px;
+
+            background:#f26522;
+
+            color:white;
+
+            padding:8px 15px;
+
+            border-radius:30px;
+
+            font-size:12px;
+
+            font-weight:700;
+        }
+
+        /* CONTENT */
+
+        .premium-content{
+
+            padding:28px;
+        }
+
+        .icon-box{
+
+            width:65px;
+            height:65px;
+
+            border-radius:20px;
+
+            background:#fff3ec;
+
+            display:flex;
+
+            align-items:center;
+
+            justify-content:center;
+
+            font-size:30px;
+
+            margin-bottom:20px;
+        }
+
+        .premium-content h3{
+
+            font-size:25px;
+
+            color:#1f2937;
+
+            margin-bottom:15px;
+        }
+
+        .premium-content p{
+
+            color:#666;
+
+            line-height:1.9;
+
+            margin-bottom:22px;
+
+            font-size:15px;
+        }
+
+        .premium-content a{
+
+            text-decoration:none;
+
+            color:#f26522;
+
+            font-weight:700;
+        }
+
+        /* ================= CTA ================= */
+
+        .services-cta{
+
+            padding:90px 20px;
+
+            text-align:center;
+
+            background:
+
+            linear-gradient(rgba(242,101,34,0.92),
+            rgba(242,101,34,0.92)),
+
+            url('/images/mahakal.jpg');
+
+            background-size:cover;
+
+            background-position:center;
+
+            color:white;
+        }
+
+        .services-cta h2{
+
+            font-size:42px;
+
+            margin-bottom:18px;
+        }
+
+        .services-cta p{
+
+            max-width:720px;
+
+            margin:auto;
+
+            line-height:1.9;
+
+            margin-bottom:30px;
+
+            font-size:17px;
+        }
+
+        .cta-btn{
+
+            display:inline-block;
+
+            background:white;
+
+            color:#f26522;
+
+            text-decoration:none;
+
+            padding:16px 32px;
+
+            border-radius:40px;
+
+            font-weight:700;
+        }
+
+        /* ================= FOOTER ================= */
+
+        .footer{
+
+            background:#111;
+
+            color:white;
+
+            padding:65px 70px 25px;
+        }
+
+        .footer-grid{
+
+            display:grid;
+
+            grid-template-columns:
+            repeat(auto-fit,minmax(250px,1fr));
+
+            gap:35px;
+
+            margin-bottom:35px;
+        }
+
+        .footer h3{
+
+            color:#f26522;
+
+            margin-bottom:18px;
+        }
+
+        .footer p,
+        .footer a{
+
+            color:#ddd;
+
+            text-decoration:none;
+
+            line-height:2;
+        }
+
+        .copyright{
+
+            text-align:center;
+
+            border-top:1px solid rgba(255,255,255,0.1);
+
+            padding-top:18px;
+
+            color:#999;
+        }
+
+        /* ================= WHATSAPP ================= */
+
+        .whatsapp{
+
+            position:fixed;
+
+            right:20px;
+            bottom:20px;
+
+            width:60px;
+            height:60px;
+
+            border-radius:50%;
+
+            background:#25D366;
+
+            color:white;
+
+            display:flex;
+
+            align-items:center;
+            justify-content:center;
+
+            text-decoration:none;
+
+            font-size:28px;
+
+            z-index:999;
+        }
+
+        /* ================= MOBILE ================= */
+
+        @media(max-width:768px){
+
+            .navbar{
+
+                padding:15px 18px;
+
+                flex-direction:column;
+            }
+
+            .logo{
+
+                margin-bottom:14px;
+            }
+
+            .logo img{
+
+                height:48px;
+            }
+
+            .logo span{
+
+                font-size:22px;
+            }
+
+            .nav-links{
+
+                flex-wrap:wrap;
+
+                justify-content:center;
+
+                gap:10px;
+            }
+
+            .nav-links a{
+
+                font-size:14px;
+            }
+
+            .contact-btn{
+
+                padding:10px 18px;
+            }
+
+            .services-hero{
+
+                padding:220px 20px 80px;
+            }
+
+            .services-hero h1{
+
+                font-size:36px;
+            }
+
+            .services-hero p{
+
+                font-size:15px;
+            }
+
+            .premium-services{
+
+                padding:75px 20px;
+            }
+
+            .premium-title h2{
+
+                font-size:30px;
+            }
+
+            .services-cta h2{
+
+                font-size:32px;
+            }
+
+            .footer{
+
+                padding:55px 20px 20px;
+            }
+
+            .sanskrit-text{
+
+                font-size:17px;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<div class="navbar">
+
+    <div class="logo">
+
+        <img src="/images/logo.png"
+             alt="Logo">
+
+        <span>
+            Shanti Marg Yatra
+        </span>
+
+    </div>
+
+    <div class="nav-links">
+
+        <a href="/homepage">
+            Home
+        </a>
+
+        <a href="/about">
+            About
+        </a>
+
+        <a href="/packages">
+            Tours/Packages
+        </a>
+
+        <a href="/services">
+            Services
+        </a>
+
+        <a href="https://wa.me/916263657357"
+           class="contact-btn">
+
+            Contact
+
+        </a>
+
+    </div>
+
+</div>
+
+<!-- HERO -->
+
+<section class="services-hero">
+
+    <div class="hero-sanskrit">
+
+        <div class="sanskrit-line"></div>
+
+        <div class="sanskrit-wrapper">
+
+            <span class="hero-icon">🔱</span>
+
+            <div class="sanskrit-text">
+                सेवा परमो धर्मः
+            </div>
+
+            <span class="hero-icon">🕉️</span>
+
+        </div>
+
+        <div class="sanskrit-line"></div>
+
+    </div>
+
+    <div class="services-tag">
+        ✨ PREMIUM SPIRITUAL SERVICES
+    </div>
+
+    <h1>
+        Peaceful Spiritual
+        Travel Experience
+    </h1>
+
+    <p>
+        Premium hotel stays, Mahakal darshan guidance,
+        family transport and complete spiritual travel
+        support for devotees visiting Ujjain.
+    </p>
+
+</section>
+
+<!-- SERVICES -->
+
+<section class="premium-services">
+
+    <div class="premium-title">
+
+        <h2>
+            Services Designed For Comfort & Devotion
+        </h2>
+
+        <p>
+            Trusted travel arrangements for families,
+            groups and devotees visiting Mahakal Ujjain.
+        </p>
+
+    </div>
+
+    <div class="premium-grid">
+
+        <!-- CARD 1 -->
+
+        <div class="premium-card">
+
+            <div class="card-image">
+
+                <img src="/images/hotel-room.jpg">
+
+                <div class="overlay"></div>
+
+                <span class="premium-badge">
+                    Popular
+                </span>
+
+            </div>
+
+            <div class="premium-content">
+
+                <div class="icon-box">🏨</div>
+
+                <h3>Premium Hotel Stay</h3>
+
+                <p>
+                    Comfortable and hygienic hotel
+                    accommodations near Mahakal temple.
+                </p>
+
+                <a href="#">
+                    Explore Hotels →
+                </a>
+
+            </div>
+
+        </div>
+
+        <!-- CARD 2 -->
+
+        <div class="premium-card">
+
+            <div class="card-image">
+
+                <img src="/images/cab-service.jpg">
+
+                <div class="overlay"></div>
+
+            </div>
+
+            <div class="premium-content">
+
+                <div class="icon-box">🚖</div>
+
+                <h3>Local Transport</h3>
+
+                <p>
+                    Pickup, sightseeing and smooth
+                    local travel arrangements.
+                </p>
+
+                <a href="#">
+                    Book Transport →
+                </a>
+
+            </div>
+
+        </div>
+
+        <!-- CARD 3 -->
+
+        <div class="premium-card">
+
+            <div class="card-image">
+
+                <img src="/images/vip-darshan.jpg">
+
+                <div class="overlay"></div>
+
+                <span class="premium-badge">
+                    VIP
+                </span>
+
+            </div>
+
+            <div class="premium-content">
+
+                <div class="icon-box">🛕</div>
+
+                <h3>Darshan Guidance</h3>
+
+                <p>
+                    Mahakal darshan assistance and
+                    Bhasma Aarti guidance support.
+                </p>
+
+                <a href="#">
+                    View Guidance →
+                </a>
+
+            </div>
+
+        </div>
+
+        <!-- CARD 4 -->
+
+        <div class="premium-card">
+
+            <div class="card-image">
+
+                <img src="/images/omkareshwar-taxi.jpg">
+
+                <div class="overlay"></div>
+
+            </div>
+
+            <div class="premium-content">
+
+                <div class="icon-box">🚘</div>
+
+                <h3>Omkareshwar Taxi</h3>
+
+                <p>
+                    Comfortable taxi services for
+                    family and group temple visits.
+                </p>
+
+                <a href="#">
+                    Book Taxi →
+                </a>
+
+            </div>
+
+        </div>
+
+        <!-- CARD 5 -->
+
+        <div class="premium-card">
+
+            <div class="card-image">
+
+                <img src="/images/group-tour.jpg">
+
+                <div class="overlay"></div>
+
+            </div>
+
+            <div class="premium-content">
+
+                <div class="icon-box">👨‍👩‍👧‍👦</div>
+
+                <h3>Family Tours</h3>
+
+                <p>
+                    Well-managed spiritual tours
+                    for families and groups.
+                </p>
+
+                <a href="#">
+                    Explore Tours →
+                </a>
+
+            </div>
+
+        </div>
+
+        <!-- CARD 6 -->
+
+        <div class="premium-card">
+
+            <div class="card-image">
+
+                <img src="/images/tour-guide.jpg">
+
+                <div class="overlay"></div>
+
+            </div>
+
+            <div class="premium-content">
+
+                <div class="icon-box">🧑‍💼</div>
+
+                <h3>Travel Guidance</h3>
+
+                <p>
+                    Friendly local guidance for
+                    smooth and peaceful journeys.
+                </p>
+
+                <a href="#">
+                    Learn More →
+                </a>
+
+            </div>
+
+        </div>
+
+        <!-- CARD 7 -->
+
+        <div class="premium-card">
+
+            <div class="card-image">
+
+                <img src="/images/food.jpg">
+
+                <div class="overlay"></div>
+
+                <span class="premium-badge">
+                    Satvik
+                </span>
+
+            </div>
+
+            <div class="premium-content">
+
+                <div class="icon-box">🍽️</div>
+
+                <h3>Satvik Food Assistance</h3>
+
+                <p>
+                    Pure vegetarian dining,
+                    prasad arrangements and
+                    trusted restaurant support.
+                </p>
+
+                <a href="#">
+                    Explore Dining →
+                </a>
+
+            </div>
+
+        </div>
+
+        <!-- CARD 8 -->
+
+        <div class="premium-card">
+
+            <div class="card-image">
+
+                <img src="/images/photography.jpg">
+
+                <div class="overlay"></div>
+
+            </div>
+
+            <div class="premium-content">
+
+                <div class="icon-box">📸</div>
+
+                <h3>Pilgrimage Photography</h3>
+
+                <p>
+                    Capture spiritual memories
+                    with premium family travel
+                    photography services.
+                </p>
+
+                <a href="#">
+                    Capture Memories →
+                </a>
+
+            </div>
+
+        </div>
+
+        <!-- CARD 9 -->
+
+        <div class="premium-card">
+
+            <div class="card-image">
+
+                <img src="/images/travel-planning.jpg">
+
+                <div class="overlay"></div>
+
+                <span class="premium-badge">
+                    Premium
+                </span>
+
+            </div>
+
+            <div class="premium-content">
+
+                <div class="icon-box">🗺️</div>
+
+                <h3>Complete Travel Planning</h3>
+
+                <p>
+                    Personalized itinerary planning
+                    for families and spiritual travelers.
+                </p>
+
+                <a href="#">
+                    Plan Journey →
+                </a>
+
+            </div>
+
+        </div>
+
+        <!-- CARD 10 -->
+
+        <div class="premium-card">
+
+            <div class="card-image">
+
+                <img src="/images/bhasma-aarti.jpg">
+
+                <div class="overlay"></div>
+
+                <span class="premium-badge">
+                    Special
+                </span>
+
+            </div>
+
+            <div class="premium-content">
+
+                <div class="icon-box">🔥</div>
+
+                <h3>Bhasma Aarti Assistance</h3>
+
+                <p>
+                    Guidance for Bhasma Aarti
+                    booking, timing and temple visits.
+                </p>
+
+                <a href="#">
+                    View Details →
+                </a>
+
+            </div>
+
+        </div>
+
+        <!-- CARD 11 -->
+
+        <div class="premium-card">
+
+            <div class="card-image">
+
+                <img src="/images/family-room.jpg">
+
+                <div class="overlay"></div>
+
+            </div>
+
+            <div class="premium-content">
+
+                <div class="icon-box">👨‍👩‍👧</div>
+
+                <h3>Family Stay Packages</h3>
+
+                <p>
+                    Comfortable stay packages
+                    designed for family and senior
+                    citizen travelers.
+                </p>
+
+                <a href="#">
+                    View Packages →
+                </a>
+
+            </div>
+
+        </div>
+
+        <!-- CARD 12 -->
+
+        <div class="premium-card">
+
+            <div class="card-image">
+
+                <img src="/images/local-tour.jpg">
+
+                <div class="overlay"></div>
+
+                <span class="premium-badge">
+                    Ujjain Tour
+                </span>
+
+            </div>
+
+            <div class="premium-content">
+
+                <div class="icon-box">📍</div>
+
+                <h3>Ujjain Local Sightseeing</h3>
+
+                <p>
+                    Visit famous temples and
+                    spiritual places in Ujjain
+                    with complete local support.
+                </p>
+
+                <a href="#">
+                    Explore Places →
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CTA -->
+
+<section class="services-cta">
+
+    <h2>
+        Begin Your Divine Journey
+    </h2>
+
+    <p>
+        Book trusted Mahakal travel services
+        with Shanti Marg Yatra today.
+    </p>
+
+    <a href="https://wa.me/916263657357"
+       class="cta-btn">
+
+        Contact On WhatsApp
+
+    </a>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer class="footer">
+
+    <div class="footer-grid">
+
+        <div>
+
+            <h3>
+                Shanti Marg Yatra
+            </h3>
+
+            <p>
+                Trusted spiritual travel
+                services for Mahakal devotees.
+            </p>
+
+        </div>
+
+        <div>
+
+            <h3>
+                Quick Links
+            </h3>
+
+            <a href="/homepage">Home</a><br>
+            <a href="/about">About</a><br>
+            <a href="/packages">Packages</a>
+
+        </div>
+
+        <div>
+
+            <h3>
+                Contact
+            </h3>
+
+            <p>📍 Ujjain, Madhya Pradesh</p>
+            <p>📞 +91 6263657357</p>
+            <p>✉ support@shantimargyatra.com</p>
+
+        </div>
+
+    </div>
+
+    <div class="copyright">
+
+        © 2026 Shanti Marg Yatra |
+        All Rights Reserved
+
+    </div>
+
+</footer>
+
+<!-- WHATSAPP -->
+
+<a href="https://wa.me/916263657357"
+   class="whatsapp">
+
+    💬
+
+</a>
+
+</body>
+</html>

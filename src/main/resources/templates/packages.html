@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+
+    <title>
+        Premium Spiritual Packages |
+        Shanti Marg Yatra
+    </title>
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body{
+            font-family:'Poppins',sans-serif;
+            background:#fff;
+            color:#222;
+            overflow-x:hidden;
+        }
+
+        html{
+            scroll-behavior:smooth;
+        }
+
+        /* =========================
+           NAVBAR
+        ========================== */
+
+        .navbar{
+            position:fixed;
+            top:0;
+            left:0;
+            width:100%;
+
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+
+            padding:16px 70px;
+
+            background:rgba(255,255,255,0.96);
+
+            backdrop-filter:blur(12px);
+
+            z-index:1000;
+
+            box-shadow:
+            0 2px 18px rgba(0,0,0,0.06);
+        }
+
+        .logo{
+            display:flex;
+            align-items:center;
+            gap:12px;
+        }
+
+        .logo img{
+            height:55px;
+        }
+
+        .logo span{
+            font-size:28px;
+            font-weight:700;
+            color:#f26522;
+        }
+
+        .nav-links{
+            display:flex;
+            align-items:center;
+        }
+
+        .nav-links a{
+            text-decoration:none;
+            color:#222;
+            margin:0 16px;
+            font-weight:600;
+            transition:0.3s;
+        }
+
+        .nav-links a:hover{
+            color:#f26522;
+        }
+
+        .contact-btn{
+            background:#f26522;
+            color:white !important;
+            padding:12px 24px;
+            border-radius:40px;
+        }
+
+        /* =========================
+           HERO SECTION
+        ========================== */
+
+        .packages-hero{
+
+            min-height:60vh;
+
+            background:
+
+            linear-gradient(rgba(0,0,0,0.65),
+            rgba(0,0,0,0.65)),
+
+            url('/images/mahakal.jpg');
+
+            background-size:cover;
+            background-position:center;
+
+            display:flex;
+            align-items:center;
+            justify-content:center;
+
+            text-align:center;
+
+            padding:180px 20px 100px;
+
+            color:white;
+        }
+
+        .hero-content{
+            max-width:850px;
+        }
+
+        .hero-tag{
+
+            display:inline-block;
+
+            background:
+            rgba(255,255,255,0.14);
+
+            padding:12px 24px;
+
+            border-radius:50px;
+
+            margin-bottom:28px;
+
+            font-size:15px;
+
+            font-weight:600;
+
+            backdrop-filter:blur(10px);
+        }
+
+        .hero-content h1{
+
+            font-size:62px;
+
+            line-height:1.15;
+
+            margin-bottom:24px;
+
+            font-weight:800;
+        }
+
+        .hero-content p{
+
+            font-size:19px;
+
+            line-height:1.9;
+
+            color:#f3f3f3;
+        }
+
+        /* =========================
+           PACKAGES SECTION
+        ========================== */
+
+        .packages-section{
+
+            position:relative;
+
+            padding:110px 80px;
+
+            background:
+
+            linear-gradient(to bottom,
+            #fffdfb,
+            #fff7f1);
+
+            overflow:hidden;
+        }
+
+        .packages-title{
+
+            text-align:center;
+
+            max-width:760px;
+
+            margin:auto;
+
+            margin-bottom:70px;
+        }
+
+        .packages-title h2{
+
+            font-size:48px;
+
+            color:#1f2937;
+
+            margin-bottom:18px;
+
+            font-weight:800;
+        }
+
+        .packages-title p{
+
+            color:#666;
+
+            line-height:1.9;
+
+            font-size:17px;
+        }
+
+        /* GRID */
+
+        .packages-grid{
+
+            display:grid;
+
+            grid-template-columns:
+            repeat(auto-fit,minmax(340px,1fr));
+
+            gap:40px;
+        }
+
+        /* CARD */
+
+        .package-card{
+
+            background:white;
+
+            border-radius:32px;
+
+            overflow:hidden;
+
+            position:relative;
+
+            box-shadow:
+            0 18px 45px rgba(0,0,0,0.08);
+
+            transition:0.45s;
+        }
+
+        .package-card:hover{
+
+            transform:
+            translateY(-12px);
+
+            box-shadow:
+            0 28px 60px rgba(0,0,0,0.12);
+        }
+
+        /* IMAGE */
+
+        .package-image{
+            position:relative;
+            overflow:hidden;
+        }
+
+        .package-image img{
+
+            width:100%;
+
+            height:260px;
+
+            object-fit:cover;
+
+            transition:0.5s;
+        }
+
+        .package-card:hover
+        .package-image img{
+
+            transform:scale(1.08);
+        }
+
+        .image-overlay{
+
+            position:absolute;
+
+            top:0;
+            left:0;
+
+            width:100%;
+            height:100%;
+
+            background:
+            linear-gradient(to top,
+            rgba(0,0,0,0.35),
+            transparent);
+        }
+
+        .package-badge{
+
+            position:absolute;
+
+            top:22px;
+            left:22px;
+
+            background:
+            linear-gradient(135deg,
+            #f26522,
+            #ff914d);
+
+            color:white;
+
+            padding:10px 18px;
+
+            border-radius:40px;
+
+            font-size:13px;
+
+            font-weight:700;
+        }
+
+        /* CONTENT */
+
+        .package-content{
+
+            padding:35px;
+        }
+
+        .package-content h3{
+
+            font-size:30px;
+
+            color:#1f2937;
+
+            margin-bottom:18px;
+
+            font-weight:700;
+        }
+
+        .description{
+
+            color:#666;
+
+            line-height:1.9;
+
+            margin-bottom:25px;
+
+            font-size:16px;
+        }
+
+        .details{
+
+            display:flex;
+            align-items:center;
+            gap:12px;
+
+            background:#fff7f1;
+
+            padding:14px 18px;
+
+            border-radius:16px;
+
+            margin-bottom:22px;
+
+            color:#444;
+
+            font-weight:600;
+        }
+
+        .price{
+
+            font-size:34px;
+
+            font-weight:800;
+
+            color:#f26522;
+
+            margin-bottom:28px;
+        }
+
+        .price span{
+
+            font-size:16px;
+
+            color:#777;
+
+            font-weight:500;
+        }
+
+        /* BUTTONS */
+
+        .buttons{
+            display:flex;
+            gap:14px;
+            flex-wrap:wrap;
+        }
+
+        .btn{
+
+            display:inline-block;
+
+            text-decoration:none;
+
+            background:
+            linear-gradient(135deg,
+            #f26522,
+            #ff914d);
+
+            color:white;
+
+            padding:15px 28px;
+
+            border-radius:50px;
+
+            font-weight:700;
+
+            transition:0.3s;
+
+            box-shadow:
+            0 12px 24px
+            rgba(242,101,34,0.22);
+        }
+
+        .btn:hover{
+
+            transform:
+            translateY(-4px);
+        }
+
+        .view-btn{
+
+            display:inline-block;
+
+            text-decoration:none;
+
+            background:white;
+
+            color:#f26522;
+
+            border:2px solid #f26522;
+
+            padding:15px 28px;
+
+            border-radius:50px;
+
+            font-weight:700;
+
+            transition:0.3s;
+        }
+
+        .view-btn:hover{
+
+            background:#f26522;
+
+            color:white;
+        }
+
+        /* FOOTER */
+
+        .footer{
+
+            background:#121212;
+
+            color:white;
+
+            padding:70px 70px 30px;
+        }
+
+        .footer-grid{
+
+            display:grid;
+
+            grid-template-columns:
+            repeat(auto-fit,minmax(250px,1fr));
+
+            gap:35px;
+
+            margin-bottom:40px;
+        }
+
+        .footer h3{
+
+            color:#f26522;
+
+            margin-bottom:20px;
+        }
+
+        .footer p,
+        .footer a{
+
+            color:#ddd;
+
+            text-decoration:none;
+
+            line-height:2;
+        }
+
+        .copyright{
+
+            text-align:center;
+
+            border-top:
+            1px solid rgba(255,255,255,0.1);
+
+            padding-top:20px;
+
+            color:#999;
+        }
+
+        /* MOBILE */
+
+        @media(max-width:768px){
+
+            .navbar{
+                padding:15px 20px;
+                flex-direction:column;
+            }
+
+            .nav-links{
+                margin-top:15px;
+                flex-wrap:wrap;
+                justify-content:center;
+            }
+
+            .nav-links a{
+                margin:8px;
+            }
+
+            .packages-hero{
+                padding:220px 20px 100px;
+            }
+
+            .hero-content h1{
+                font-size:42px;
+            }
+
+            .hero-content p{
+                font-size:16px;
+            }
+
+            .packages-section{
+                padding:80px 20px;
+            }
+
+            .packages-title h2{
+                font-size:34px;
+            }
+
+            .package-content{
+                padding:28px;
+            }
+
+            .package-content h3{
+                font-size:24px;
+            }
+
+            .footer{
+                padding:60px 20px 25px;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<div class="navbar">
+
+    <div class="logo">
+
+        <img src="/images/logo.png"
+             alt="Logo">
+
+        <span>
+            Shanti Marg Yatra
+        </span>
+
+    </div>
+
+    <div class="nav-links">
+
+        <a href="/homepage">
+            Home
+        </a>
+
+        <a href="/about">
+            About
+        </a>
+
+        <a href="/packages">
+            Packages
+        </a>
+
+        <a href="/services">
+            Services
+        </a>
+
+        <a href="https://wa.me/916263657357"
+           class="contact-btn">
+
+            Contact
+
+        </a>
+
+    </div>
+
+</div>
+
+<!-- HERO -->
+
+<section class="packages-hero">
+
+    <div class="hero-content">
+
+        <div class="hero-tag">
+            🔱 Premium Mahakal Darshan Packages
+        </div>
+
+        <h1>
+            Divine Spiritual Tours
+            Crafted For Comfort
+            & Devotion
+        </h1>
+
+        <p>
+            Explore peaceful Mahakal darshan,
+            premium stays, local sightseeing
+            and smooth travel experiences
+            with Shanti Marg Yatra.
+        </p>
+
+    </div>
+
+</section>
+
+<!-- PACKAGES -->
+
+<section class="packages-section">
+
+    <div class="packages-title">
+
+        <h2>
+            Our Popular Packages
+        </h2>
+
+        <p>
+            Carefully designed spiritual
+            tour packages for families,
+            groups and devotees visiting
+            Ujjain and nearby temples.
+        </p>
+
+    </div>
+
+    <div class="packages-grid">
+
+        <!-- PACKAGE CARD -->
+
+        <div class="package-card"
+             th:each="pkg : ${packages}">
+
+            <div class="package-image">
+
+                <img src="/images/package1.jpg"
+                     alt="Package">
+
+                <div class="image-overlay"></div>
+
+                <div class="package-badge">
+                    Popular
+                </div>
+
+            </div>
+
+            <div class="package-content">
+
+                <h3 th:text="${pkg.name}">
+                    Package Name
+                </h3>
+
+                <p class="description"
+                   th:text="${pkg.description}">
+
+                    Package Description
+
+                </p>
+
+                <div class="details">
+
+                    📅 Duration :
+                    <span th:text="${pkg.days}">
+                        2
+                    </span>
+
+                    Days
+
+                </div>
+
+                <div class="price">
+
+                    ₹<span th:text="${pkg.price}">
+                        4999
+                    </span>
+
+                    <span>/ per person</span>
+
+                </div>
+
+                <!-- BUTTONS -->
+
+                <div class="buttons">
+
+                    <a class="btn"
+                       th:href="@{/register/{id}(id=${pkg.id})}">
+
+                        Book Now
+
+                    </a>
+
+                    <a class="view-btn"
+                       th:href="@{/package-details/{id}(id=${pkg.id})}">
+
+                        View More
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer class="footer">
+
+    <div class="footer-grid">
+
+        <div>
+
+            <h3>
+                Shanti Marg Yatra
+            </h3>
+
+            <p>
+                Your trusted partner for
+                spiritual tours, Mahakal
+                darshan and premium
+                pilgrimage services.
+            </p>
+
+        </div>
+
+        <div>
+
+            <h3>
+                Quick Links
+            </h3>
+
+            <a href="/homepage">
+                Home
+            </a><br>
+
+            <a href="/about">
+                About
+            </a><br>
+
+            <a href="/services">
+                Services
+            </a>
+
+        </div>
+
+        <div>
+
+            <h3>
+                Contact
+            </h3>
+
+            <p>
+                📍 Ujjain, Madhya Pradesh
+            </p>
+
+            <p>
+                📞 +91 6263657357
+            </p>
+
+            <p>
+                ✉ support@shantimargyatra.com
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="copyright">
+
+        © 2026 Shanti Marg Yatra |
+        All Rights Reserved
+
+    </div>
+
+</footer>
+
+</body>
+</html>
