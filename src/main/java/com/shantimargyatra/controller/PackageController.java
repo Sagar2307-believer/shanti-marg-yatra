@@ -25,10 +25,6 @@ public class PackageController {
 private final PackageService packageService;
 private final UserService userService;
 private final BookingService bookingService;
-	@GetMapping("/")
-public String home() {
-    return "home-page";
-}
 @GetMapping("/packages")
 public String viewPackages(Model model)
 {
