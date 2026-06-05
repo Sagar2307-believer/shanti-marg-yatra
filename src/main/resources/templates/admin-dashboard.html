@@ -2,119 +2,363 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Admin Dashboard</title>
+<title>Shanti Marg Yatra - Admin Dashboard</title>
 
 <style>
-    body {
-        font-family: Arial;
-        margin: 0;
-        background: #f4f6f9;
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Segoe UI',sans-serif;
+    background:#f4f6fb;
+    color:#333;
+}
+
+/* HEADER */
+.header{
+    background:linear-gradient(135deg,#f26522,#ff914d);
+    color:white;
+    padding:22px 30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 5px 20px rgba(0,0,0,.12);
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.header h1{
+    font-size:28px;
+}
+
+.header span{
+    font-size:14px;
+    opacity:.9;
+}
+
+/* CONTAINER */
+.container{
+    max-width:1400px;
+    margin:auto;
+    padding:30px;
+}
+
+/* STATS GRID */
+.stats{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:18px;
+    margin-bottom:25px;
+}
+
+.card{
+    background:white;
+    border-radius:18px;
+    padding:22px;
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-4px);
+}
+
+.card h3{
+    color:#777;
+    font-size:15px;
+    margin-bottom:10px;
+}
+
+.card h1{
+    color:#f26522;
+    font-size:38px;
+}
+
+/* SECTION */
+.section{
+    background:white;
+    border-radius:18px;
+    padding:22px;
+    margin-bottom:25px;
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+}
+
+.section h2{
+    color:#f26522;
+    font-size:22px;
+    margin-bottom:15px;
+}
+
+/* TABLE */
+.table-wrapper{
+    overflow-x:auto;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th{
+    background:#f26522;
+    color:white;
+    padding:14px;
+    font-size:14px;
+    white-space:nowrap;
+}
+
+td{
+    padding:12px;
+    border-bottom:1px solid #eee;
+    text-align:center;
+    font-size:14px;
+}
+
+tr:hover{
+    background:#fff7f2;
+}
+
+/* BADGES */
+.badge{
+    padding:6px 10px;
+    border-radius:15px;
+    font-size:12px;
+    font-weight:600;
+    display:inline-block;
+}
+
+.travel{
+    background:#e8f5e9;
+    color:#2e7d32;
+}
+
+.booking{
+    background:#e3f2fd;
+    color:#1565c0;
+}
+
+/* PRICE */
+.price{
+    color:#27ae60;
+    font-weight:bold;
+}
+
+/* DESCRIPTION */
+.description{
+    text-align:left;
+    min-width:260px;
+    font-size:13px;
+}
+
+/* FOOTER */
+.footer{
+    text-align:center;
+    color:#888;
+    padding:25px;
+    font-size:13px;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+
+    .header{
+        flex-direction:column;
+        text-align:center;
+        gap:8px;
     }
 
-    header {
-        background: #2c3e50;
-        color: white;
-        padding: 15px;
-        text-align: center;
-        font-size: 22px;
+    .header h1{
+        font-size:22px;
     }
 
-    .container {
-        padding: 20px;
+    .container{
+        padding:15px;
     }
 
-    h2 {
-        margin-top: 30px;
-        color: #333;
+    .card h1{
+        font-size:30px;
     }
 
-    table {
-        width: 100%;
-        border-collapse: collapse;
-        background: white;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        margin-top: 10px;
+    .section h2{
+        font-size:20px;
     }
 
-    th, td {
-        padding: 12px;
-        border-bottom: 1px solid #ddd;
-        text-align: center;
+    th,td{
+        font-size:12px;
+        padding:10px;
     }
-
-    th {
-        background: #3498db;
-        color: white;
-    }
-
-    tr:hover {
-        background: #f1f1f1;
-    }
+}
 
 </style>
 </head>
 
 <body>
 
-<header>
-    🛠 Admin Dashboard - Shanti Marg Yatra
-</header>
+<div class="header">
+    <h1>🛕 Shanti Marg Yatra Admin</h1>
+    <span>Bookings • Users • Packages Management</span>
+</div>
 
 <div class="container">
 
-    <h2>📦 Bookings</h2>
+    <!-- STATS -->
+    <div class="stats">
 
-    <table>
-        <tr>
-            <th>ID</th>
-            <th>User ID</th>
-            <th>Package ID</th>
-            <th>Travel Date</th>
-        </tr>
+        <div class="card">
+            <h3>👤 Total Users</h3>
+            <h1 th:text="${users.size()}">0</h1>
+        </div>
 
-        <tr th:each="b : ${bookings}">
-            <td th:text="${b.id}"></td>
-            <td th:text="${b.userId}"></td>
-            <td th:text="${b.packageId}"></td>
-            <td th:text="${b.travelDate}"></td>
-        </tr>
-    </table>
+        <div class="card">
+            <h3>📦 Total Bookings</h3>
+            <h1 th:text="${bookings.size()}">0</h1>
+        </div>
 
-    <h2>👤 Users</h2>
+        <div class="card">
+            <h3>🛕 Total Packages</h3>
+            <h1 th:text="${packages.size()}">0</h1>
+        </div>
 
-    <table>
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Mobile</th>
-        </tr>
+        <div class="card">
+            <h3>📅 Today's Bookings</h3>
+            <h1 th:text="${todayBookings}">0</h1>
+        </div>
 
-        <tr th:each="u : ${users}">
-            <td th:text="${u.id}"></td>
-            <td th:text="${u.name}"></td>
-            <td th:text="${u.mobile}"></td>
-        </tr>
-    </table>
-    <h2>📦 Packages</h2>
+        <div class="card">
+            <h3>👥 Today's Users</h3>
+            <h1 th:text="${todayUsers}">0</h1>
+        </div>
 
-<table>
-    <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Days</th>
-        <th>Price</th>
-    </tr>
+    </div>
 
-    <tr th:each="p : ${packages}">
-        <td th:text="${p.id}"></td>
-        <td th:text="${p.name}"></td>
-        <td th:text="${p.description}"></td>
-        <td th:text="${p.days}"></td>
-        <td>₹ <span th:text="${p.price}"></span></td>
-    </tr>
-</table>
+    <!-- BOOKINGS -->
+    <div class="section">
 
+        <h2>📦 Booking Management</h2>
+
+        <div class="table-wrapper">
+
+            <table>
+
+                <tr>
+                    <th>ID</th>
+                    <th>👤 Customer</th>
+                    <th>🛕 Package</th>
+                    <th>🛕 Yatra Date</th>
+                    <th>📅 Booking Date</th>
+                    <th>⏰ Arrival Time</th>
+                    <th>📞 Mobile</th>
+                    <th>👥 Persons</th>
+                </tr>
+
+                <tr th:each="b : ${bookings}">
+
+                    <td th:text="${b.id}"></td>
+
+                    <td th:text="${userNames[b.userId]}"></td>
+
+                    <td th:text="${packageNames[b.packageId]}"></td>
+
+                    <td>
+                        <span class="badge travel"
+                              th:text="${b.travelDate != null ? #temporals.format(b.travelDate,'dd MMM yyyy') : '-'}">
+                        </span>
+                    </td>
+
+                    <td>
+                        <span class="badge booking"
+                              th:text="${b.registrationDate != null ? #temporals.format(b.registrationDate,'dd MMM yyyy') : '-'}">
+                        </span>
+                    </td>
+
+                    <td>
+                        <span class="badge booking"
+                              th:text="${b.arrivalTime != null ? #temporals.format(b.arrivalTime,'hh:mm a') : '-'}">
+                        </span>
+                    </td>
+                    <td>
+                   <a th:href="'tel:' + ${userMobiles[b.userId]}"
+                        th:text="${userMobiles[b.userId]}">
+                          </a>
+                          </td>
+
+                    <td th:text="${b.persons}"></td>
+
+                </tr>
+
+            </table>
+
+        </div>
+
+    </div>
+
+    <!-- USERS -->
+    <div class="section">
+
+        <h2>👤 Users</h2>
+
+        <div class="table-wrapper">
+
+            <table>
+
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Mobile</th>
+                </tr>
+
+                <tr th:each="u : ${users}">
+                    <td th:text="${u.id}"></td>
+                    <td th:text="${u.name}"></td>
+                    <td th:text="${u.mobile}"></td>
+                </tr>
+
+            </table>
+
+        </div>
+
+    </div>
+
+    <!-- PACKAGES -->
+    <div class="section">
+
+        <h2>🛕 Packages</h2>
+
+        <div class="table-wrapper">
+
+            <table>
+
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Days</th>
+                    <th>Price</th>
+                </tr>
+
+                <tr th:each="p : ${packages}">
+                    <td th:text="${p.id}"></td>
+                    <td th:text="${p.name}"></td>
+                    <td class="description" th:text="${p.description}"></td>
+                    <td th:text="${p.days + ' Days'}"></td>
+                    <td class="price">₹ <span th:text="${p.price}"></span></td>
+                </tr>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="footer">
+    © 2025 Shanti Marg Yatra Admin Panel
 </div>
 
 </body>

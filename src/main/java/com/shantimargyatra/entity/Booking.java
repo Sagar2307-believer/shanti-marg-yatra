@@ -9,6 +9,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -34,6 +35,11 @@ public class Booking {
     private LocalDate travelDate;
     
     private LocalTime arrivalTime;
-    
     private int persons;
+    private LocalDate registrationDate;
+    
+    @PrePersist
+    public void setDefaultDate() {
+        this.registrationDate = LocalDate.now();
+    }
 }
