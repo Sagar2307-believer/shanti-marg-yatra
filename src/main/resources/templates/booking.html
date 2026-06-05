@@ -1,95 +1,120 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
 <meta charset="UTF-8">
 <title>Confirm Booking - Shanti Marg Yatra</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
 <style>
-    body {
-        margin: 0;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        background: linear-gradient(135deg, #667eea, #764ba2);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-    }
 
-    .booking-container {
-        background: #fff;
-        padding: 30px 40px;
-        border-radius: 12px;
-        width: 400px;
-        box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-    }
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
 
-    .booking-container h2 {
-        text-align: center;
-        margin-bottom: 25px;
-        color: #333;
-    }
+/* CARD */
+.booking-container {
+    background: rgba(255,255,255,0.96);
+    padding: 35px 40px;
+    border-radius: 18px;
+    width: 420px;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.35);
+    backdrop-filter: blur(10px);
+}
 
-    .form-group {
-        margin-bottom: 15px;
-    }
+/* TITLE */
+.booking-container h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #f26522;
+    font-weight: 700;
+}
 
-    label {
-        display: block;
-        font-weight: 600;
-        margin-bottom: 5px;
-        color: #555;
-    }
+/* FORM */
+.form-group {
+    margin-bottom: 15px;
+}
 
-    input[type="date"], input[type="time"], input[type="number"] {
-        width: 100%;
-        padding: 10px;
-        border-radius: 6px;
-        border: 1px solid #ccc;
-        outline: none;
-        transition: border 0.3s;
-        font-size: 14px;
-    }
+label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #444;
+    font-size: 14px;
+}
 
-    input:focus {
-        border-color: #667eea;
-    }
+/* INPUTS */
+input[type="date"],
+input[type="time"],
+input[type="number"] {
 
-    .btn {
-        width: 100%;
-        padding: 12px;
-        background: #667eea;
-        color: white;
-        font-size: 16px;
-        font-weight: bold;
-        border: none;
-        border-radius: 6px;
-        cursor: pointer;
-        transition: background 0.3s ease;
-    }
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    outline: none;
+    font-size: 14px;
+    transition: 0.3s;
+}
 
-    .btn:hover {
-        background: #5a67d8;
-    }
+input:focus {
+    border-color: #f26522;
+    box-shadow: 0 0 0 3px rgba(242,101,34,0.15);
+}
 
-    .footer-text {
-        text-align: center;
-        margin-top: 15px;
-        font-size: 13px;
-        color: #888;
-    }
+/* BUTTON */
+.btn {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #f26522, #ff914d);
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 10px;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(242,101,34,0.3);
+}
+
+/* FOOTER */
+.footer-text {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 12px;
+    color: #777;
+}
+
 </style>
+
 </head>
+
 <body>
 
 <div class="booking-container">
+
     <h2>🛕 Confirm Your Booking</h2>
 
     <form th:action="@{/booking}" method="post" th:object="${booking}">
+
         <input type="hidden" th:field="*{userId}" />
         <input type="hidden" th:field="*{packageId}" />
 
         <div class="form-group">
             <label>Date of Arrival</label>
-            <input type="date" th:field="*{travelDate}" required />
+            <input type="date" th:field="*{travelDate}" id="travelDate" required />
         </div>
 
         <div class="form-group">
@@ -102,13 +127,24 @@
             <input type="number" th:field="*{persons}" min="1" value="1" required />
         </div>
 
-        <button type="submit" class="btn">Confirm Booking</button>
+        <button type="submit" class="btn">
+            Confirm Booking
+        </button>
+
     </form>
 
     <div class="footer-text">
         We will contact you shortly after booking 📞
     </div>
+
 </div>
 
+<!-- DATE VALIDATION SCRIPT -->
+<script>
+    const today = new Date().toISOString().split('T')[0];
+    document.getElementById("travelDate").setAttribute("min", today);
+</script>
+
 </body>
+
 </html>

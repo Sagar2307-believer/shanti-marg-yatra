@@ -87,10 +87,10 @@ public String saveBooking(@ModelAttribute Booking booking, Model model){
 
     return "success";
 }
-@GetMapping("/homepage")
+@GetMapping({"/homepage","/"})
 public String homePage() {
-	
-	return "home-page";
+	String t = "home-page";
+	return t;
 }
 @GetMapping("/about")
 public String aboutSection() {
@@ -104,12 +104,12 @@ public String servicesSection() {
 @GetMapping("/package-details/{id}")
 public String packageDetails(@PathVariable Long id,
                              Model model){
+	String r = "package-details-"+id;
+//	com.shantimargyatra.entity.Package pkg =
+//            packageService.getPackageById(id);
+//
+//    model.addAttribute("pkg", pkg);
 
-	com.shantimargyatra.entity.Package pkg =
-            packageService.getPackageById(id);
-
-    model.addAttribute("pkg", pkg);
-
-    return "package-details";
+    return r;
 }
 }

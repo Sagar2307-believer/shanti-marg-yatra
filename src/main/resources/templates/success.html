@@ -1,130 +1,201 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
+
 <meta charset="UTF-8">
 <title>Booking Confirmed - Shanti Marg Yatra</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
 <style>
-    body {
-        margin: 0;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        background: #f5f7fa;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-    }
 
-    .invoice-container {
-        background: #fff;
-        padding: 30px 40px;
-        border-radius: 12px;
-        width: 450px;
-        box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-    }
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #eef2f7, #f8fafc);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
 
-    h2 {
-        text-align: center;
-        color: #333;
-        margin-bottom: 20px;
-    }
+/* MAIN CARD */
+.invoice-container {
+    background: #ffffff;
+    padding: 35px 40px;
+    border-radius: 18px;
+    width: 480px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.10);
+    border: 1px solid #eef0f3;
+}
 
-    .invoice-details {
-        border-top: 1px solid #ddd;
-        border-bottom: 1px solid #ddd;
-        padding: 15px 0;
-        margin-bottom: 20px;
-    }
+/* TITLE */
+h2 {
+    text-align: center;
+    color: #16a34a;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
 
-    .invoice-row {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 10px;
-        font-size: 15px;
-    }
+/* DETAILS */
+.invoice-details {
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    padding: 18px 0;
+    margin-bottom: 20px;
+}
 
-    .invoice-row b {
-        color: #333;
-    }
+.invoice-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    font-size: 15px;
+}
 
-    .total-row {
-        font-weight: bold;
-        font-size: 16px;
-        border-top: 1px solid #ddd;
-        padding-top: 10px;
-        margin-top: 10px;
-        color: #667eea;
-    }
+.invoice-row span:first-child {
+    color: #555;
+    font-weight: 500;
+}
 
-    .btn-group {
-        display: flex;
-        justify-content: space-between;
-        margin-top: 25px;
-    }
+.invoice-row span:last-child {
+    color: #111;
+}
 
-    .btn {
-        padding: 10px 15px;
-        background: #667eea;
-        color: white;
-        text-decoration: none;
-        border-radius: 6px;
-        font-size: 14px;
-        transition: background 0.3s;
-    }
+/* TOTAL */
+.total-row {
+    font-weight: 700;
+    font-size: 16px;
+    color: #f26522;
+    border-top: 1px solid #eee;
+    padding-top: 12px;
+    margin-top: 10px;
+}
 
-    .btn:hover {
-        background: #5a67d8;
-    }
+/* 🔥 HIGHLIGHT BOX */
+.highlight-box {
+    background: linear-gradient(135deg, #fff7ed, #fff1f2);
+    border-left: 5px solid #f26522;
+    padding: 15px 15px;
+    border-radius: 10px;
+    font-size: 13.5px;
+    color: #444;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
 
-    .footer-text {
-        text-align: center;
-        margin-top: 20px;
-        font-size: 13px;
-        color: #888;
-    }
+/* BUTTONS */
+.btn-group {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.btn {
+    flex: 1;
+    padding: 12px;
+    text-align: center;
+    background: linear-gradient(135deg, #f26522, #ff914d);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(242,101,34,0.25);
+}
+
+.btn.secondary {
+    background: #e5e7eb;
+    color: #111;
+}
+
+.btn.secondary:hover {
+    background: #d1d5db;
+}
+
+/* FOOTER */
+.footer-text {
+    text-align: center;
+    margin-top: 18px;
+    font-size: 12px;
+    color: #6b7280;
+    line-height: 1.5;
+}
+
 </style>
+
 </head>
+
 <body>
 
 <div class="invoice-container">
-    <h2>✅ Booking Confirmed!</h2>
+
+    <h2>✅ Booking Confirmed Successfully</h2>
 
     <div class="invoice-details">
+
         <div class="invoice-row">
-            <span>User Name:</span>
+            <span>User Name</span>
             <span th:text="${userName}"></span>
         </div>
+
         <div class="invoice-row">
-            <span>Package:</span>
+            <span>Package</span>
             <span th:text="${packageName}"></span>
         </div>
+
         <div class="invoice-row">
-            <span>Travel Date:</span>
+            <span>Travel Date</span>
             <span th:text="${#temporals.format(travelDate,'dd/MM/yyyy')}"></span>
         </div>
+
         <div class="invoice-row">
-            <span>Arrival Time:</span>
+            <span>Arrival Time</span>
             <span th:text="${arrivalTime}"></span>
         </div>
+
         <div class="invoice-row">
-            <span>Number of Persons:</span>
+            <span>Persons</span>
             <span th:text="${persons}"></span>
         </div>
+
         <div class="invoice-row total-row">
-            <span>Total Price:</span>
-            <span>₹<span th:text="${price}"></span></span>
+            <span>Total Price</span>
+            <span>₹ <span th:text="${price}"></span></span>
         </div>
+
+    </div>
+
+    <!-- 🔥 HIGHLIGHTED CUSTOMIZATION -->
+    <div class="highlight-box">
+        <b>✨ Customizable Package:</b><br>
+        This package can be customized according to your group size, whether you're traveling with family, friends, or relatives.
     </div>
 
     <div class="btn-group">
-        <a href="/packages" class="btn">Explore More Packages</a>
-        <a href="https://wa.me/919098488697" class="btn">Contact Us</a>
+
+        <a href="/packages" class="btn secondary">
+            Explore More
+        </a>
+
+        <a href="https://wa.me/919098488697" class="btn">
+            WhatsApp Us
+        </a>
+
     </div>
 
     <div class="footer-text">
-        Thank you for booking with Shanti Marg Yatra 🛕 
-        Our team will connect you in some time.
+        🙏 Thank you for choosing Shanti Marg Yatra<br>
+        Our team will contact you shortly for confirmation.
     </div>
+
 </div>
 
 </body>
+
 </html>

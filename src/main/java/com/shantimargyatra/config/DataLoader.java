@@ -28,7 +28,7 @@ public void loadData() {
 				.name("Shanti Marg 2-Day Darshan")
 				.description("Visit Mahakaleshwar Temple and nearby Temples. Also Cofortable Stay")
 				.days(2)
-				.price(1999)
+				.price(1)
 				.imageurl("")
 				.build()
 				);
