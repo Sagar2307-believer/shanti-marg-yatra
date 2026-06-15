@@ -2,6 +2,7 @@ package com.shantimargyatra.service.impl;
 
 import java.util.List;
 
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.shantimargyatra.entity.Booking;
@@ -21,7 +22,9 @@ public class BookingServiceImpl implements BookingService {
 	}
 	@Override
 	public List<Booking> getAllBookings() {
-		 return bookingRepository.findAll();
+		 return bookingRepository.findAll(
+			        Sort.by(Sort.Direction.DESC, "registrationDate")
+			    );
 	}
 
 }

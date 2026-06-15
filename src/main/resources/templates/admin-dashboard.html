@@ -248,9 +248,10 @@ tr:hover{
                 <tr>
                     <th>ID</th>
                     <th>👤 Customer</th>
+                    <th>📅 Registration Date</th>
                     <th>🛕 Package</th>
-                    <th>🛕 Yatra Date</th>
-                    <th>📅 Booking Date</th>
+                    <th>🛕 Arrival Date</th>
+             
                     <th>⏰ Arrival Time</th>
                     <th>📞 Mobile</th>
                     <th>👥 Persons</th>
@@ -261,6 +262,12 @@ tr:hover{
                     <td th:text="${b.id}"></td>
 
                     <td th:text="${userNames[b.userId]}"></td>
+                     <td>
+                        <span class="badge booking"
+                              th:text="${b.registrationDate != null ? #temporals.format(b.registrationDate,'dd MMM yyyy') : '-'}">
+                        </span>
+                    </td>
+                    
 
                     <td th:text="${packageNames[b.packageId]}"></td>
 
@@ -269,13 +276,6 @@ tr:hover{
                               th:text="${b.travelDate != null ? #temporals.format(b.travelDate,'dd MMM yyyy') : '-'}">
                         </span>
                     </td>
-
-                    <td>
-                        <span class="badge booking"
-                              th:text="${b.registrationDate != null ? #temporals.format(b.registrationDate,'dd MMM yyyy') : '-'}">
-                        </span>
-                    </td>
-
                     <td>
                         <span class="badge booking"
                               th:text="${b.arrivalTime != null ? #temporals.format(b.arrivalTime,'hh:mm a') : '-'}">
