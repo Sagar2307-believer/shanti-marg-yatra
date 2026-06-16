@@ -15,7 +15,7 @@ public class TelegramServiceImpl implements TelegramService {
     @Value("${telegram.bot.token}")
     private String botToken;
 
-    @Value("${telegram.chat.id}")
+    @Value("${telegram.chat.ids}")
     private String chatIdsProperty;
 
     private final RestTemplate restTemplate = new RestTemplate();
