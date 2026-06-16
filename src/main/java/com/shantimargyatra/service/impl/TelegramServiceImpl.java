@@ -16,7 +16,7 @@ public class TelegramServiceImpl implements TelegramService {
     private String botToken;
 
     @Value("${telegram.chat.id}")
-    private String chatId;
+    private String chatIdsProperty;
 
     private final RestTemplate restTemplate = new RestTemplate();
     @Override
@@ -26,16 +26,21 @@ public class TelegramServiceImpl implements TelegramService {
                 "https://api.telegram.org/bot"
                 + botToken
                 + "/sendMessage";
+        
+        String[] chatIds = chatIdsProperty.split(",");
 
-        Map<String, String> request = new HashMap<>();
+        for (String chatId : chatIds) {
 
-        request.put("chat_id", chatId);
-        request.put("text", message);
+            Map<String, String> request = new HashMap<>();
 
-        restTemplate.postForObject(
-                url,
-                request,
-                String.class
-        );
+            request.put("chat_id", chatId.trim());
+            request.put("text", message);
+
+            restTemplate.postForObject(
+                    url,
+                    request,
+                    String.class
+            );
+        }
     }
 }
