@@ -34,10 +34,14 @@ public class BookingServiceImpl implements BookingService {
 	            .findById(booking.getPackageId())
 	            .orElseThrow();
 
-	    emailService.sendBookingNotification(
-	            booking,
-	            user,
-	            tourPackage);
+	    try {
+	        emailService.sendBookingNotification(
+	                booking,
+	                user,
+	                tourPackage);
+	    } catch (Exception e) {
+	        System.out.println("Email notification failed: " + e.getMessage());
+	    }
 
 		return "Booking Successful!! Will short connectly";
 	}
