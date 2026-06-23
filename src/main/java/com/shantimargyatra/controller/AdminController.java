@@ -21,7 +21,7 @@ public class AdminController {
     private final UserService userService;
     private final PackageService packageService;
 
-    @GetMapping("/admin")
+    @GetMapping("/admin/sagarjaiswal")
     public String adminDashboard(Model model) {
 
         var bookings = bookingService.getAllBookings();
