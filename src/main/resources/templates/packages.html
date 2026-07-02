@@ -512,21 +512,13 @@
 
     <div class="nav-links">
 
-        <a href="/homepage">
-            Home
-        </a>
+ <a th:href="@{/homepage}" th:classappend="${page == 'home'} ? 'active'">Home</a>
 
-        <a href="/about">
-            About Us
-        </a>
+<a th:href="@{/about}" th:classappend="${page == 'about'} ? 'active'">About Us</a>
 
-        <a href="/packages">
-            Tours/Packages
-        </a>
+<a th:href="@{/packages}" th:classappend="${page == 'packages'} ? 'active'">Tours/Packages</a>
 
-        <a href="/services">
-            Services
-        </a>
+<a th:href="@{/services}" th:classappend="${page == 'services'} ? 'active'">Services</a>
 
         <a href="https://wa.me/916263657357"
            class="contact-btn">

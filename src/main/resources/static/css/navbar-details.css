@@ -86,7 +86,21 @@
 
             color:#f26522;
         }
+        .nav-links a.active {
+    color: #f26522;
+    font-weight: 700;
+    position: relative;
+}
 
+ .nav-links a.active::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 2px;
+    background: #f26522;
+}
         .contact-btn{
 
             background:#f26522;

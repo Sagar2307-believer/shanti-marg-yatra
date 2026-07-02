@@ -29,6 +29,7 @@ private final BookingService bookingService;
 public String viewPackages(Model model)
 {
 	model.addAttribute("packages", packageService.getAllPackages());
+	model.addAttribute("page", "packages");
 	return "packages";
 
 }
@@ -84,16 +85,18 @@ public String saveBooking(@ModelAttribute Booking booking, Model model){
     return "success";
 }
 @GetMapping({"/homepage","/"})
-public String homePage() {
-	String t = "home-page";
-	return t;
+public String homePage(Model model) {
+	model.addAttribute("page", "home");
+	return "home-page";
 }
 @GetMapping("/about")
-public String aboutSection() {
+public String aboutSection(Model model) {
+	model.addAttribute("page", "about");
 	return "about-section";
 }
 @GetMapping("/services")
-public String servicesSection() {
+public String servicesSection(Model model) {
+	model.addAttribute("page", "services");
 	return "services-section";
 	
 }
