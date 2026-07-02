@@ -80,7 +80,7 @@ public String saveBooking(@ModelAttribute Booking booking, Model model){
     model.addAttribute("travelDate", booking.getTravelDate());
     model.addAttribute("arrivalTime", booking.getArrivalTime());
     model.addAttribute("persons", booking.getPersons());
-    model.addAttribute("price", pkg.getPrice() * booking.getPersons());
+    //model.addAttribute("price", pkg.getPrice() * booking.getPersons());
 
     return "success";
 }
