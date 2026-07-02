@@ -180,11 +180,19 @@ body {
 
 /* LEFT CARD */
 .card {
-    background: white;
-    padding: 40px;
-    border-radius: 25px;
-    box-shadow: 0 10px 30px rgba(0,0,0,.08);
-    margin-bottom: 30px;
+     background:white;
+
+            border-radius:28px;
+
+            overflow:hidden;
+
+            border:1px solid rgba(0,0,0,0.04);
+
+            box-shadow:
+            0 15px 40px rgba(0,0,0,0.07);
+
+            transition:0.4s;
+    
 }
 
 .card h2 {
