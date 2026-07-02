@@ -48,17 +48,20 @@ h2 {
 
 .invoice-row {
     display: flex;
-    justify-content: space-between;
+    align-items: flex-start;
     margin-bottom: 12px;
     font-size: 15px;
 }
 
 .invoice-row span:first-child {
+    width: 90px;          /* ya 100px */
     color: #555;
     font-weight: 500;
+    flex-shrink: 0;
 }
 
 .invoice-row span:last-child {
+    flex: 1;
     color: #111;
 }
 
