@@ -327,7 +327,7 @@
 
 }
 .price-note{
-    margin:0;
+   margin-bottom:28px;
     font-size:14px;
     color:#666;
     font-weight:500;
@@ -620,10 +620,9 @@
                     Days
 
                 </div>
-
-                <div class="price">
-                ₹<span th:text="${pkg.price}">4999</span>
-                 </div>
+<div class="price">
+    ₹<span th:text="${#numbers.formatDecimal(pkg.price,0,0)}">999</span>
+</div>
 
                <p class="price-note">
                 Per person • Customised for group size
