@@ -312,25 +312,26 @@
             font-weight:600;
         }
 
-        .price{
+           .price{
+    color:#f26522;
+    font-size:32px;
+    font-weight:800;
+    margin-bottom:6px;
+    line-height:1;
+}
+.price span{
 
-            font-size:34px;
+    font-size:inherit;
+    font-weight:inherit;
+    color:inherit;
 
-            font-weight:800;
-
-            color:#f26522;
-
-            margin-bottom:28px;
-        }
-
-        .price span{
-
-            font-size:16px;
-
-            color:#777;
-
-            font-weight:500;
-        }
+}
+.price-note{
+    margin:0;
+    font-size:14px;
+    color:#666;
+    font-weight:500;
+}
 
         /* BUTTONS */
 
@@ -621,12 +622,12 @@
                 </div>
 
                 <div class="price">
+                ₹<span th:text="${pkg.price}">4999</span>
+                 </div>
 
-                    ₹<span th:text="${pkg.price}">
-                        4999
-                    </span>
-
-                </div>
+               <p class="price-note">
+                Per person • Customised for group size
+               </p>
 
                 <!-- BUTTONS -->
 
