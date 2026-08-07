@@ -1,14 +1,18 @@
-/* ===========================
-   GOOGLE FONT
-=========================== */
+/* ===================================================
+                    GOOGLE FONT
+=================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+
+/* ===================================================
+                        RESET
+=================================================== */
 
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
 }
 
 html{
@@ -17,128 +21,189 @@ html{
 
 body{
 
-    background:#f7f7f7;
+    font-family:'Poppins',sans-serif;
+
+    background:#f8f9fb;
+
     color:#333;
+
     overflow-x:hidden;
+
+    line-height:1.6;
 
 }
 
 
-/* ===========================
-        HERO SECTION
-=========================== */
+/* ===================================================
+                    HERO SECTION
+=================================================== */
 
 .hero{
 
     position:relative;
-    width:100%;
-    height:500px;
 
-    background:url('/images/mahakal-bg.jpg') center center/cover no-repeat;
+    width:100%;
+
+    min-height:520px;
 
     display:flex;
+
     justify-content:center;
+
     align-items:center;
+
     text-align:center;
+
+    padding:70px 20px;
+
+    background:
+            linear-gradient(rgba(0,0,0,.60),
+            rgba(0,0,0,.60)),
+            url("../images/mahakal-bg.jpg");
+
+    background-size:cover;
+
+    background-position:center;
+
+    background-repeat:no-repeat;
 
 }
 
 .overlay{
 
     position:absolute;
+
     inset:0;
 
-    background:rgba(0,0,0,.60);
-
 }
+
+
+/* ===================================================
+                    HERO CONTENT
+=================================================== */
 
 .hero-content{
 
     position:relative;
-    z-index:10;
-    width:90%;
-    max-width:900px;
+
+    z-index:5;
+
+    width:100%;
+
+    max-width:850px;
 
 }
 
 .hero h4{
 
-    color:#ffb300;
+    color:#FFC107;
+
     font-size:22px;
-    margin-bottom:15px;
-    letter-spacing:1px;
+
+    font-weight:600;
+
+    margin-bottom:18px;
+
+    letter-spacing:.8px;
 
 }
 
 .hero h1{
 
-    color:white;
-    font-size:55px;
+    color:#fff;
+
+    font-size:58px;
+
     font-weight:700;
+
+    line-height:1.2;
+
     margin-bottom:20px;
 
 }
 
 .hero p{
 
-    color:#ececec;
+    color:#f2f2f2;
+
     font-size:18px;
-    line-height:1.8;
+
+    line-height:1.9;
+
+    max-width:760px;
+
+    margin:auto;
 
 }
 
 
-
-/* ===========================
-    FORM SECTION
-=========================== */
+/* ===================================================
+                FORM SECTION
+=================================================== */
 
 .journey-section{
 
-    width:100%;
     padding:80px 20px;
 
 }
 
 .container{
 
-    width:95%;
+    width:100%;
+
     max-width:1100px;
+
     margin:auto;
 
 }
 
+
+/* ===================================================
+                SECTION HEADING
+=================================================== */
+
 .section-heading{
 
     text-align:center;
-    margin-bottom:50px;
+
+    margin-bottom:45px;
 
 }
 
 .section-heading h2{
 
-    color:#e65100;
+    color:#E65100;
+
     font-size:40px;
-    margin-bottom:10px;
+
+    margin-bottom:12px;
+
+    font-weight:700;
 
 }
 
 .section-heading p{
 
     color:#666;
+
     font-size:17px;
-    line-height:1.7;
+
+    max-width:720px;
+
+    margin:auto;
+
+    line-height:1.8;
 
 }
 
 
-/* ===========================
-        CARD
-=========================== */
+/* ===================================================
+                    CARD
+=================================================== */
 
 .card{
 
-    background:white;
+    background:#fff;
 
     border-radius:18px;
 
@@ -146,9 +211,10 @@ body{
 
     margin-bottom:30px;
 
-    box-shadow:0 10px 30px rgba(0,0,0,.08);
+    box-shadow:
+            0 10px 30px rgba(0,0,0,.08);
 
-    transition:.4s;
+    transition:.35s ease;
 
 }
 
@@ -156,24 +222,27 @@ body{
 
     transform:translateY(-5px);
 
-    box-shadow:0 18px 45px rgba(0,0,0,.15);
+    box-shadow:
+            0 18px 45px rgba(0,0,0,.12);
 
 }
 
 .card h3{
 
-    color:#ff6f00;
-
-    margin-bottom:25px;
+    color:#F57C00;
 
     font-size:26px;
+
+    margin-bottom:28px;
+
+    font-weight:600;
 
 }
 
 
-/* ===========================
-        ROW
-=========================== */
+/* ===================================================
+                        ROW
+=================================================== */
 
 .row{
 
@@ -181,9 +250,20 @@ body{
 
     gap:25px;
 
-    margin-bottom:20px;
+    margin-bottom:22px;
 
 }
+
+.row:last-child{
+
+    margin-bottom:0;
+
+}
+
+
+/* ===================================================
+                    FORM GROUP
+=================================================== */
 
 .form-group{
 
@@ -195,109 +275,124 @@ body{
 
 }
 
-
-/* ===========================
-      LABEL
-=========================== */
-
 .form-group label{
 
-    margin-bottom:10px;
-
-    color:#444;
+    font-size:15px;
 
     font-weight:600;
 
+    color:#444;
+
+    margin-bottom:10px;
+
 }
-
-
-/* ===========================
-INPUT
-=========================== */
+/* ===================================================
+                    INPUTS
+=================================================== */
 
 .form-group input,
-
 .form-group select,
-
 .form-group textarea{
 
     width:100%;
 
-    padding:14px 18px;
+    padding:15px 18px;
 
-    border:1px solid #ddd;
+    border:1px solid #d9d9d9;
 
-    border-radius:10px;
+    border-radius:12px;
 
     font-size:15px;
 
-    transition:.3s;
+    color:#333;
+
+    background:#fff;
 
     outline:none;
 
+    transition:all .35s ease;
+
+    -webkit-appearance:none;
+    appearance:none;
+
 }
 
 
-/* ===========================
-INPUT FOCUS
-=========================== */
+/* ===================================================
+                PLACEHOLDER
+=================================================== */
+
+::placeholder{
+
+    color:#999;
+
+    font-size:14px;
+
+}
+
+
+/* ===================================================
+                INPUT FOCUS
+=================================================== */
 
 .form-group input:focus,
-
 .form-group select:focus,
-
 .form-group textarea:focus{
 
-    border-color:#ff6f00;
+    border-color:#F57C00;
 
-    box-shadow:0 0 12px rgba(255,111,0,.20);
+    box-shadow:0 0 0 4px rgba(245,124,0,.12);
+
+    transform:translateY(-2px);
 
 }
 
 
-/* ===========================
-TEXTAREA
-=========================== */
+/* ===================================================
+                TEXTAREA
+=================================================== */
 
 textarea{
 
-    resize:none;
+    resize:vertical;
+
+    min-height:140px;
 
 }
 
 
-/* ===========================
-SMALL ERROR
-=========================== */
+/* ===================================================
+                ERROR MESSAGE
+=================================================== */
 
 small{
 
-    margin-top:8px;
+    color:#e53935;
 
-    color:red;
+    margin-top:7px;
 
     font-size:13px;
 
 }
 
 
-/* ===========================
-SUBMIT BUTTON
-=========================== */
+/* ===================================================
+                SUBMIT BUTTON
+=================================================== */
 
 .submit-section{
 
-    text-align:center;
+    margin-top:45px;
 
-    margin-top:40px;
+    text-align:center;
 
 }
 
 .submit-section button{
 
-    background:linear-gradient(135deg,#ff9800,#ff6f00);
+    background:linear-gradient(135deg,#ff9800,#f57c00);
 
-    color:white;
+    color:#fff;
 
     border:none;
 
@@ -307,59 +402,83 @@ SUBMIT BUTTON
 
     font-size:18px;
 
+    font-weight:600;
+
     cursor:pointer;
 
-    transition:.4s;
+    transition:.35s;
 
-    font-weight:600;
+    letter-spacing:.3px;
 
 }
 
 .submit-section button:hover{
 
-    transform:translateY(-3px);
+    transform:translateY(-4px);
 
-    box-shadow:0 15px 30px rgba(255,111,0,.35);
+    box-shadow:0 15px 30px rgba(245,124,0,.35);
 
 }
-/* ===========================
-        CONTACT SECTION
-=========================== */
+
+.submit-section button:active{
+
+    transform:scale(.98);
+
+}
+
+
+/* ===================================================
+                LOADING BUTTON
+=================================================== */
+
+.loading{
+
+    opacity:.85;
+
+    pointer-events:none;
+
+    cursor:not-allowed;
+
+}
+
+
+/* ===================================================
+                CONTACT SECTION
+=================================================== */
 
 .contact-section{
 
     padding:80px 20px;
 
-    background:#fff8f1;
+    background:#fff8f2;
 
 }
 
 .contact-card{
 
-    width:95%;
-    max-width:1000px;
+    max-width:1050px;
 
     margin:auto;
 
-    background:white;
+    background:#fff;
 
     border-radius:20px;
 
-    padding:45px;
+    padding:50px 40px;
 
     text-align:center;
 
-    box-shadow:0 12px 35px rgba(0,0,0,.08);
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
 
 }
 
 .contact-card h2{
 
-    color:#e65100;
-
-    margin-bottom:20px;
+    color:#E65100;
 
     font-size:34px;
+
+    margin-bottom:18px;
 
 }
 
@@ -367,21 +486,30 @@ SUBMIT BUTTON
 
     color:#555;
 
+    font-size:16px;
+
     line-height:1.8;
 
-    font-size:16px;
+    max-width:750px;
+
+    margin:auto;
 
 }
 
+
+/* ===================================================
+                CONTACT INFO
+=================================================== */
+
 .contact-info{
 
-    margin-top:30px;
+    margin-top:35px;
 
     display:flex;
 
     justify-content:center;
 
-    gap:40px;
+    gap:20px;
 
     flex-wrap:wrap;
 
@@ -391,30 +519,32 @@ SUBMIT BUTTON
 
     background:#fff3e0;
 
-    color:#ff6f00;
+    color:#F57C00;
 
     padding:15px 25px;
 
-    border-radius:40px;
+    border-radius:50px;
 
     font-weight:600;
 
-    transition:.3s;
+    transition:.35s;
 
 }
 
 .contact-info p:hover{
 
-    background:#ff6f00;
+    background:#F57C00;
 
-    color:white;
+    color:#fff;
+
+    transform:translateY(-3px);
 
 }
 
 
-/* ===========================
-        HIDE SECTION
-=========================== */
+/* ===================================================
+            HIDE OPTIONAL SECTION
+=================================================== */
 
 #pickupLocationSection,
 #hotelCategorySection{
@@ -424,13 +554,13 @@ SUBMIT BUTTON
 }
 
 
-/* ===========================
-        ANIMATION
-=========================== */
+/* ===================================================
+                ANIMATION
+=================================================== */
 
 .card{
 
-    animation:fadeUp .8s ease;
+    animation:fadeUp .7s ease;
 
 }
 
@@ -439,13 +569,15 @@ SUBMIT BUTTON
     from{
 
         opacity:0;
-        transform:translateY(30px);
+
+        transform:translateY(25px);
 
     }
 
     to{
 
         opacity:1;
+
         transform:translateY(0);
 
     }
@@ -453,35 +585,9 @@ SUBMIT BUTTON
 }
 
 
-/* ===========================
-      BUTTON LOADING
-=========================== */
-
-.loading{
-
-    opacity:.8;
-
-    cursor:not-allowed;
-
-    pointer-events:none;
-
-}
-
-
-/* ===========================
-     PLACEHOLDER
-=========================== */
-
-::placeholder{
-
-    color:#999;
-
-}
-
-
-/* ===========================
-      SCROLLBAR
-=========================== */
+/* ===================================================
+                SCROLLBAR
+=================================================== */
 
 ::-webkit-scrollbar{
 
@@ -491,7 +597,7 @@ SUBMIT BUTTON
 
 ::-webkit-scrollbar-track{
 
-    background:#f5f5f5;
+    background:#f3f3f3;
 
 }
 
@@ -499,26 +605,26 @@ SUBMIT BUTTON
 
     background:#ff9800;
 
-    border-radius:20px;
+    border-radius:30px;
 
 }
 
 ::-webkit-scrollbar-thumb:hover{
 
-    background:#e65100;
+    background:#ef6c00;
 
 }
+/* ===================================================
+                TABLET (991px)
+=================================================== */
 
-
-/* ===========================
-        RESPONSIVE
-=========================== */
-
-@media(max-width:992px){
+@media screen and (max-width:991px){
 
     .hero{
 
-        height:420px;
+        min-height:430px;
+
+        padding:60px 25px;
 
     }
 
@@ -528,22 +634,50 @@ SUBMIT BUTTON
 
     }
 
+    .hero h4{
+
+        font-size:20px;
+
+    }
+
+    .hero p{
+
+        font-size:16px;
+
+    }
+
     .section-heading h2{
 
-        font-size:32px;
+        font-size:34px;
+
+    }
+
+    .card{
+
+        padding:28px;
+
+    }
+
+    .card h3{
+
+        font-size:23px;
 
     }
 
 }
 
 
-@media(max-width:768px){
+/* ===================================================
+                MOBILE (768px)
+=================================================== */
+
+@media screen and (max-width:768px){
 
     .hero{
 
-        height:380px;
+        min-height:380px;
 
-        padding:20px;
+        padding:50px 20px;
 
     }
 
@@ -565,6 +699,38 @@ SUBMIT BUTTON
 
         font-size:15px;
 
+        line-height:1.8;
+
+    }
+
+    .journey-section{
+
+        padding:60px 15px;
+
+    }
+
+    .container{
+
+        width:100%;
+
+    }
+
+    .section-heading{
+
+        margin-bottom:35px;
+
+    }
+
+    .section-heading h2{
+
+        font-size:30px;
+
+    }
+
+    .section-heading p{
+
+        font-size:15px;
+
     }
 
     .row{
@@ -577,13 +743,27 @@ SUBMIT BUTTON
 
     .card{
 
-        padding:25px;
+        padding:24px;
+
+        border-radius:16px;
 
     }
 
     .card h3{
 
-        font-size:22px;
+        font-size:21px;
+
+        margin-bottom:22px;
+
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea{
+
+        padding:14px 16px;
+
+        font-size:15px;
 
     }
 
@@ -591,17 +771,27 @@ SUBMIT BUTTON
 
         width:100%;
 
+        padding:17px;
+
+        font-size:17px;
+
     }
 
     .contact-card{
 
-        padding:30px 20px;
+        padding:35px 22px;
 
     }
 
     .contact-card h2{
 
         font-size:28px;
+
+    }
+
+    .contact-card p{
+
+        font-size:15px;
 
     }
 
@@ -613,20 +803,38 @@ SUBMIT BUTTON
 
     }
 
+    .contact-info p{
+
+        width:100%;
+
+    }
+
 }
 
 
-@media(max-width:480px){
+/* ===================================================
+            SMALL MOBILE (480px)
+=================================================== */
+
+@media screen and (max-width:480px){
 
     .hero{
 
-        height:330px;
+        min-height:340px;
+
+        padding:45px 15px;
 
     }
 
     .hero h1{
 
         font-size:28px;
+
+    }
+
+    .hero h4{
+
+        font-size:16px;
 
     }
 
@@ -638,7 +846,7 @@ SUBMIT BUTTON
 
     .section-heading h2{
 
-        font-size:26px;
+        font-size:25px;
 
     }
 
@@ -650,13 +858,124 @@ SUBMIT BUTTON
 
     .card{
 
-        padding:20px;
+        padding:18px;
+
+        border-radius:14px;
 
     }
 
     .card h3{
 
-        font-size:20px;
+        font-size:19px;
+
+    }
+
+    .form-group label{
+
+        font-size:14px;
+
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea{
+
+        padding:13px 15px;
+
+        font-size:14px;
+
+    }
+
+    textarea{
+
+        min-height:120px;
+
+    }
+
+    .submit-section{
+
+        margin-top:35px;
+
+    }
+
+    .submit-section button{
+
+        font-size:16px;
+
+        padding:15px;
+
+        border-radius:14px;
+
+    }
+
+    .contact-card{
+
+        padding:25px 18px;
+
+    }
+
+    .contact-card h2{
+
+        font-size:23px;
+
+    }
+
+    .contact-card p{
+
+        font-size:14px;
+
+    }
+
+    .contact-info p{
+
+        font-size:14px;
+
+        padding:14px;
+
+    }
+
+}
+
+
+/* ===================================================
+            EXTRA SMALL DEVICES
+=================================================== */
+
+@media screen and (max-width:360px){
+
+    .hero h1{
+
+        font-size:24px;
+
+    }
+
+    .hero p{
+
+        font-size:13px;
+
+    }
+
+    .card{
+
+        padding:16px;
+
+    }
+
+    .card h3{
+
+        font-size:18px;
+
+    }
+
+    .section-heading h2{
+
+        font-size:22px;
+
+    }
+
+    .submit-section button{
+
+        font-size:15px;
 
     }
 

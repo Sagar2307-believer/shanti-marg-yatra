@@ -4,7 +4,7 @@
 
 // Countdown Timer
 
-let seconds = 10;
+let seconds = 90;
 
 const countdown = document.getElementById("countdown");
 
