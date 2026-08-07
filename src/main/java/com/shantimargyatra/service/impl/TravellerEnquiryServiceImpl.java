@@ -27,7 +27,6 @@ public class TravellerEnquiryServiceImpl implements TravellerEnquiryService {
         enquiry.setStatus("NEW");
 
         travellerEnquiryRepository.save(enquiry);
-
         try {
 
             String msg =

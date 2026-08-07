@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Thank You | Shanti Marg Yatra</title>
+
+    <meta name="description"
+          content="Thank you for choosing Shanti Marg Yatra. Your enquiry has been received successfully.">
+
+    <!-- CSS -->
+    <link rel="stylesheet" th:href="@{/css/thank-you.css}">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<section class="thank-you-section">
+
+    <!-- Dark Overlay -->
+    <div class="overlay"></div>
+
+    <!-- Main Card -->
+    <div class="thank-card">
+
+        <!-- Logo -->
+        <img th:src="@{/images/logo.png}"
+             alt="Shanti Marg Yatra Logo"
+             class="logo">
+
+        <!-- Success Icon -->
+        <div class="success-icon">
+            <i class="fa-solid fa-circle-check"></i>
+        </div>
+
+        <!-- Heading -->
+        <div class="heading">
+
+            <h4>🙏 Jai Shri Mahakal 🔱</h4>
+
+            <h1>Thank You!</h1>
+
+            <h2>Your Enquiry Has Been Submitted Successfully</h2>
+
+        </div>
+
+        <!-- Description -->
+        <div class="description">
+
+            <p>
+
+                Thank you for choosing
+                <strong>Shanti Marg Yatra.</strong>
+
+                <br><br>
+
+                We have successfully received your travel enquiry.
+
+                Our travel experts are reviewing your requirements and
+                will contact you shortly with the best suitable package.
+
+                <br><br>
+
+                We provide complete assistance for
+
+                <strong>
+                    Mahakal Darshan,
+                    Omkareshwar,
+                    Hotel Booking,
+                    Private Cab,
+                    Local Sightseeing
+                </strong>
+
+                and your entire spiritual journey.
+
+                <br><br>
+
+                <strong>
+
+                    🙏 May Lord Mahakal bless your journey with peace,
+                    happiness and divine blessings.
+
+                </strong>
+
+            </p>
+
+        </div>
+
+        <!-- What Happens Next -->
+
+        <div class="next-steps">
+
+            <h3>
+                <i class="fa-solid fa-list-check"></i>
+                What Happens Next?
+            </h3>
+
+            <div class="step">
+                <span>1</span>
+                <p>Our travel expert reviews your enquiry.</p>
+            </div>
+
+            <div class="step">
+                <span>2</span>
+                <p>We contact you via Call or WhatsApp.</p>
+            </div>
+
+            <div class="step">
+                <span>3</span>
+                <p>You receive your customized travel package.</p>
+            </div>
+
+            <div class="step">
+                <span>4</span>
+                <p>Confirm your booking and begin your divine journey.</p>
+            </div>
+
+        </div>
+
+        <!-- Contact Section -->
+
+        <div class="contact-container">
+
+            <div class="contact-box">
+
+                <i class="fa-solid fa-phone-volume"></i>
+
+                <h3>Call Us</h3>
+
+                <a href="tel:+916263657357">
+                    +91 62636 57357
+                </a>
+
+            </div>
+
+            <div class="contact-box">
+
+                <i class="fa-brands fa-whatsapp"></i>
+
+                <h3>WhatsApp</h3>
+
+                <a href="https://wa.me/916263657357"
+                   target="_blank">
+
+                    Chat With Us
+
+                </a>
+
+            </div>
+
+            <div class="contact-box">
+
+                <i class="fa-solid fa-envelope"></i>
+
+                <h3>Email</h3>
+
+                <a href="mailto:shantimargyatra@gmail.com">
+
+                    shantimargyatra@gmail.com
+
+                </a>
+
+            </div>
+
+            <div class="contact-box">
+
+                <i class="fa-solid fa-globe"></i>
+
+                <h3>Website</h3>
+
+                <a href="https://www.shantimargyatra.in"
+                   target="_blank">
+
+                    www.shantimargyatra.in
+
+                </a>
+
+            </div>
+
+        </div>
+
+        <!-- Important Note -->
+
+        <div class="important-note">
+
+            <i class="fa-solid fa-circle-info"></i>
+
+            During Sawan, Mahashivratri and festive seasons,
+            response time may be slightly longer due to heavy booking requests.
+
+        </div>
+
+        <!-- Countdown -->
+
+        <div class="redirect-box">
+
+            <p>
+
+                <i class="fa-solid fa-clock"></i>
+
+                Redirecting to Home Page in
+
+                <span id="countdown">10</span>
+
+                seconds...
+
+            </p>
+
+        </div>
+
+        <!-- Buttons -->
+
+        <div class="button-group">
+
+            <a th:href="@{/packages}" class="btn-primary">
+
+                <i class="fa-solid fa-map-location-dot"></i>
+
+                Explore Packages
+
+            </a>
+
+            <a th:href="@{/}" class="btn-secondary">
+
+                <i class="fa-solid fa-house"></i>
+
+                Back To Home
+
+            </a>
+
+        </div>
+
+        <!-- Footer -->
+
+        <div class="footer-text">
+
+            <strong>
+
+                Mahakal Ki Nagari,
+                Aapki Bhakti Hamari Sewa.
+
+            </strong>
+
+            <br><br>
+
+            Thank you for trusting
+            <strong>Shanti Marg Yatra.</strong>
+
+            <br><br>
+
+            © 2026 Shanti Marg Yatra.
+            All Rights Reserved.
+
+        </div>
+
+    </div>
+
+</section>
+
+<script th:src="@{/js/thank-you.js}"></script>
+
+</body>
+
+</html>

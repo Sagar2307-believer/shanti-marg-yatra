@@ -36,5 +36,8 @@ public class TravellerEnquiryController {
 
         return "redirect:/thank-you";
     }
-
+    @GetMapping("/thank-you")
+    public String thankYouPage() {
+        return "thank-you";
+    }
 }
