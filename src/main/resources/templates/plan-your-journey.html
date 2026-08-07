@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Plan Your Journey | Shanti Marg Yatra</title>
+
+    <meta name="description"
+        content="Plan your spiritual journey with Shanti Marg Yatra. Share your travel details and receive a personalized itinerary for Ujjain, Mahakaleshwar, Omkareshwar and nearby pilgrimages.">
+
+    <link rel="stylesheet" th:href="@{/css/plan-your-journey.css}">
+
+    <link rel="icon" th:href="@{/images/favicon.png}">
+
+</head>
+
+<body>
+
+    <!-- ================= HERO SECTION ================= -->
+
+    <section class="hero">
+
+        <div class="overlay"></div>
+
+        <div class="hero-content">
+
+            <h4>🙏 Jai Shri Mahakal 🔱</h4>
+
+            <h1>Plan Your Spiritual Journey</h1>
+
+            <p>
+                Share your travel details with us and receive a personalized itinerary
+                specially prepared by the Shanti Marg Yatra Team.
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- ================= FORM SECTION ================= -->
+
+    <section class="journey-section">
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <h2>Traveller Information</h2>
+
+                <p>
+                    Kindly fill in the details below so that we can prepare the most
+                    suitable package for your spiritual journey.
+                </p>
+
+            </div>
+
+            <form
+                    th:action="@{/plan-your-journey}"
+                    th:object="${enquiry}"
+                    method="post"
+                    id="journeyForm">
+                                    <div class="card">
+
+                    <h3>👤 Personal Information</h3>
+
+                    <div class="row">
+
+                        <div class="form-group">
+
+                            <label>Full Name *</label>
+
+                            <input
+                                    type="text"
+                                    th:field="*{fullName}"
+                                    placeholder="Enter your full name"
+                                    required>
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <label>Mobile Number *</label>
+
+                            <input
+                                    type="text"
+                                    th:field="*{mobile}"
+                                    id="mobile"
+                                    maxlength="10"
+                                    placeholder="Enter mobile number"
+                                    required>
+
+                            <small id="mobileError"></small>
+
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="form-group">
+
+                            <label>Email Address</label>
+
+                            <input
+                                    type="email"
+                                    th:field="*{email}"
+                                    placeholder="Enter email">
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <label>City / State</label>
+
+                            <input
+                                    type="text"
+                                    th:field="*{city}"
+                                    placeholder="Your City">
+
+                        </div>
+
+                    </div>
+
+                </div>
+                                <div class="card">
+
+                    <h3>👨‍👩‍👧 Traveller Details</h3>
+
+                    <div class="row">
+
+                        <div class="form-group">
+
+                            <label>Number of Adults *</label>
+
+                            <input
+                                    type="number"
+                                    min="1"
+                                    th:field="*{adults}"
+                                    required>
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <label>Number of Children</label>
+
+                            <input
+                                    type="number"
+                                    min="0"
+                                    th:field="*{children}">
+
+                        </div>
+
+                    </div>
+
+                </div>
+                                <div class="card">
+
+                    <h3>📅 Travel Schedule</h3>
+
+                    <div class="row">
+
+                        <div class="form-group">
+
+                            <label>Arrival Date *</label>
+
+                            <input
+                                    type="date"
+                                    th:field="*{arrivalDate}"
+                                    required>
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <label>Arrival Time *</label>
+
+                            <input
+                                    type="time"
+                                    th:field="*{arrivalTime}"
+                                    required>
+
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="form-group">
+
+                            <label>Return Date *</label>
+
+                            <input
+                                    type="date"
+                                    th:field="*{returnDate}"
+                                    required>
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <label>Return Time *</label>
+
+                            <input
+                                    type="time"
+                                    th:field="*{returnTime}"
+                                    required>
+
+                        </div>
+
+                    </div>
+
+                </div>
+                                <!-- ================= ARRIVAL INFORMATION ================= -->
+
+                <div class="card">
+
+                    <h3>🚉 Arrival Information</h3>
+
+                    <div class="row">
+
+                        <div class="form-group">
+
+                            <label>Arrival By *</label>
+
+                            <select th:field="*{arrivalBy}" required>
+
+                                <option value="">Select Arrival Mode</option>
+
+                                <option value="Train">🚆 Train</option>
+
+                                <option value="Bus">🚌 Bus</option>
+
+                                <option value="Flight">✈️ Flight</option>
+
+                                <option value="Private Vehicle">🚗 Private Vehicle</option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+                </div>
+                                <!-- ================= PICKUP ================= -->
+
+                <div class="card">
+
+                    <h3>🚖 Pickup Assistance</h3>
+
+                    <div class="row">
+
+                        <div class="form-group">
+
+                            <label>Do you need Pickup Assistance?</label>
+
+                            <select id="pickupRequired"
+                                    th:field="*{pickupRequired}">
+
+                                <option value="false">No</option>
+                                <option value="true">Yes</option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+                    <div class="row"
+                         id="pickupLocationSection">
+
+                        <div class="form-group">
+
+                            <label>Pickup Location</label>
+
+                            <input
+                                   type="text"
+                                   th:field="*{pickupLocation}"
+                                   placeholder="Railway Station / Bus Stand / Airport">
+
+                        </div>
+
+                    </div>
+
+                </div>
+                                <!-- ================= HOTEL ================= -->
+
+                <div class="card">
+
+                    <h3>🏨 Accommodation</h3>
+
+                    <div class="row">
+
+                        <div class="form-group">
+
+                            <label>Hotel Required?</label>
+
+                            <select
+                                    id="hotelRequired"
+                                    th:field="*{hotelRequired}">
+
+                                <option value="false">No</option>
+                                <option value="true">Yes</option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+                    <div class="row"
+                         id="hotelCategorySection">
+
+                        <div class="form-group">
+
+                            <label>Hotel Category</label>
+
+                            <select
+                                    th:field="*{hotelCategory}">
+
+                                <option value="">Select Category</option>
+
+                                <option value="Budget">Budget</option>
+
+                                <option value="Deluxe">Deluxe</option>
+
+                                <option value="Premium">Premium</option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+                </div>
+                                <!-- ================= SPECIAL REQUEST ================= -->
+
+                <div class="card">
+
+                    <h3>📝 Special Requirements</h3>
+
+                    <div class="row">
+
+                        <div class="form-group">
+
+                            <label>Any Special Requirements?</label>
+
+                            <textarea
+                                      rows="5"
+                                      th:field="*{specialRequest}"
+                                      placeholder="Example: Elderly travellers, wheelchair assistance, early check-in, extra hotel night, food preferences or any other request."></textarea>
+
+                        </div>
+
+                    </div>
+
+                </div>
+                                <!-- ================= SOURCE ================= -->
+
+                <div class="card">
+
+                    <h3>🌐 How did you hear about us?</h3>
+
+                    <div class="row">
+
+                        <div class="form-group">
+
+                            <label>Select Source</label>
+
+                            <select th:field="*{source}">
+
+                                <option value="">Select</option>
+
+                                <option value="Google">Google Search</option>
+
+                                <option value="Instagram">Instagram</option>
+
+                                <option value="Facebook">Facebook</option>
+
+                                <option value="WhatsApp">WhatsApp</option>
+
+                                <option value="Friend / Family">Friend / Family</option>
+
+                                <option value="Other">Other</option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+                </div>
+                                <div class="submit-section">
+
+                    <button
+                            type="submit"
+                            id="submitBtn">
+
+                        🔱 Get My Personalized Itinerary
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </section>
+        <!-- ================= CONTACT ================= -->
+
+    <section class="contact-section">
+
+        <div class="contact-card">
+
+            <h2>🙏 Thank You for Choosing Shanti Marg Yatra</h2>
+
+            <p>
+
+                Once we receive your enquiry, our travel experts will prepare
+                a personalized itinerary and contact you shortly.
+
+            </p>
+
+            <div class="contact-info">
+
+                <p>📞 +91 62636 57357</p>
+
+                <p>📧 shantimargyatra@gmail.com</p>
+
+                <p>🌐 www.shantimargyatra.in</p>
+
+            </div>
+
+        </div>
+
+    </section>
+    <script th:src="@{/js/plan-your-journey.js}"></script>
+
+</body>
+
+</html>
